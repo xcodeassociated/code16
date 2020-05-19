@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://covid-tail.png" type="Texture" id=1]
+[ext_resource path="res://covid_script.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 135, 139 )
+
+[node name="Covid" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 135, 138 )
+shape = SubResource( 1 )
+
+[node name="covid-tail" type="Sprite" parent="CollisionShape2D"]
+position = Vector2( 0.10144, 0 )
+scale = Vector2( 0.41262, 0.42236 )
+texture = ExtResource( 1 )
+[connection signal="input_event" from="." to="." method="_on_Covid_input_event"]
